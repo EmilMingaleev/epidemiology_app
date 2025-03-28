@@ -1,0 +1,12 @@
+<h2>Departments</h2>
+<%= link_to 'New Department', new_department_path %>
+
+<ul>
+  <% @departments.each do |department| %>
+    <li>
+      <%= link_to department.name, department_path(department) %>
+      | <%= link_to "Edit", edit_department_path(department) %>
+      | <%= button_to "Delete", department, method: :delete, data: { confirm: "Are you sure?" } %>
+    </li>
+  <% end %>
+</ul>
