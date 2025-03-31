@@ -10,6 +10,10 @@
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: TreatCommentsAsGroupSeparators, ConsiderPunctuation, Include.
 # Include: **/*.gemfile, **/Gemfile, **/gems.rb
+AllCops:
+  Exclude:
+    - 'config/initializers/devise.rb'
+
 Bundler/OrderedGems:
   Exclude:
     - 'Gemfile'
