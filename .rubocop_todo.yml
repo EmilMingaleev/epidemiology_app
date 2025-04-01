@@ -13,6 +13,7 @@
 AllCops:
   Exclude:
     - 'config/initializers/devise.rb'
+    - 'config/initializers/devise.rb'
 
 Bundler/OrderedGems:
   Exclude:
