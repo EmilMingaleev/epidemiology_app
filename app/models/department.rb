@@ -8,6 +8,10 @@ class Department < ApplicationRecord
     %w[id name description created_at updated_at]
   end
 
+  def self.ransackable_associations(_auth_object = nil)
+    %w[reports]
+  end
+
   after_create :generate_qr_code
 
   private

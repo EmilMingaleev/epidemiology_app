@@ -9,6 +9,10 @@ ActiveAdmin.register Department do
     actions
   end
 
+  filter :name
+  filter :description
+  filter :created_at
+
   form do |f|
     f.inputs do
       f.input :name

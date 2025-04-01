@@ -11,6 +11,8 @@
   <% @department.reports.each do |report| %>
     <div class="report">
       <p>Uploaded at: <%= report.uploaded_at || report.created_at.strftime("%d.%m.%Y %H:%M") %></p>
+      <p><strong>Author:</strong> <%= report.user.full_name if report.user %></p>
+      <p><strong>Position:</strong> <%= report.user.position if report.user %></p>
       <p>Comments: <%= report.comments %></p>
 
       <% if report.pdf.attached? %>
