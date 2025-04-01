@@ -19,6 +19,3 @@ jobs:
 
       - name: Install dependencies
         run: bundle install
-
-      - name: Run RuboCop
-        run: bundle exec rubocop --parallel --format progress

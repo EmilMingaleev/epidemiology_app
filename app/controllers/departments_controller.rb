@@ -1,5 +1,6 @@
 class DepartmentsController < ApplicationController
   before_action :set_department, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[index show]
 
   def index
     @departments = Department.all
@@ -8,10 +9,12 @@ class DepartmentsController < ApplicationController
   def show; end
 
   def new
+    authorize! Department
     @department = Department.new
   end
 
   def create
+    authorize! Department
     @department = Department.new(department_params)
     if @department.save
       redirect_to @department, notice: "Department was successfully created."
@@ -20,9 +23,12 @@ class DepartmentsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize! @department
+  end
 
   def update
+    authorize! @department
     if @department.update(department_params)
       redirect_to @department, notice: "Department was successfully updated."
     else
@@ -31,6 +37,7 @@ class DepartmentsController < ApplicationController
   end
 
   def destroy
+    authorize! @department
     @department.destroy
     redirect_to departments_path, notice: "Department was successfully deleted."
   end
