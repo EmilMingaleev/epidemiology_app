@@ -1,0 +1,7 @@
+<h1>Report Viewer</h1>
+
+<% if @report.pdf.attached? %>
+  <iframe src="<%= url_for(@report.pdf) %>" width="100%" height="600px"></iframe>
+<% else %>
+  <p>No report available.</p>
+<% end %>

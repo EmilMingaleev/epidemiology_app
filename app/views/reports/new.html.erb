@@ -1,0 +1,19 @@
+<h1>Upload Report for <%= @department.name %></h1>
+
+<%= form_with(model: [@department, @report], local: true) do |form| %>
+  <div>
+    <%= form.label :pdf, "Select PDF File" %>
+    <%= form.file_field :pdf %>
+  </div>
+
+  <div>
+    <%= form.label :comments, "Comments" %>
+    <%= form.text_area :comments %>
+  </div>
+
+  <div>
+    <%= form.submit "Upload Report" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', department_path(@department) %>
