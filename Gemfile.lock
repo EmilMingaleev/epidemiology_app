@@ -124,6 +124,10 @@ GEM
     drb (2.2.1)
     error_highlight (0.7.0)
     erubi (1.13.1)
+    ffi (1.17.1)
+    ffi (1.17.1-arm64-darwin)
+    ffi (1.17.1-x86_64-darwin)
+    ffi (1.17.1-x86_64-linux-gnu)
     formtastic (5.0.0)
       actionpack (>= 6.0.0)
     formtastic_i18n (0.7.0)
@@ -301,6 +305,8 @@ GEM
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.4.1)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     securerandom (0.4.1)
     selenium-webdriver (4.29.1)
       base64 (~> 0.2)
@@ -375,6 +381,7 @@ DEPENDENCIES
   rubocop
   rubocop-performance
   rubocop-rails
+  sassc (~> 2.4)
   selenium-webdriver
   sprockets-rails
   stimulus-rails
