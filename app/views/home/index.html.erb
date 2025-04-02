@@ -1,2 +1,54 @@
 <h2>Welcome to EpidemiologyApp</h2>
 <p><%= link_to "View Departments", departments_path %></p>
+
+<% if @epidemiology_news.present? %>
+  <ul>
+    <% @epidemiology_news.each do |article| %>
+      <li>
+        <h4><%= link_to article['title'], article['url'], target: "_blank" %></h4>
+        <p><%= article['description'] %></p>
+        <p><%= article['publishedAt'] %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+<% end %>
+
+<% if @hiv_news.present? %>
+  <ul>
+    <% @hiv_news.each do |article| %>
+      <li>
+        <h4><%= link_to article['title'], article['url'], target: "_blank" %></h4>
+        <p><%= article['description'] %></p>
+        <p><%= article['publishedAt'] %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+<% end %>
+
+<% if @covid_news.present? %>
+  <ul>
+    <% @covid_news.each do |article| %>
+      <li>
+        <h4><%= link_to article['title'], article['url'], target: "_blank" %></h4>
+        <p><%= article['description'] %></p>
+        <p><%= article['publishedAt'] %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+<% end %>
+
+<h3>Departments QR Codes</h3>
+<% @departments.each do |department| %>
+  <div>
+    <h4><%= department.name %></h4>
+    <% if department.qr_code.attached? %>
+      <%= image_tag url_for(department.qr_code), size: "150x150" %>
+      <p>QR Code for <%= department.name %></p>
+    <% else %>
+      <p>No QR Code available</p>
+    <% end %>
+  </div>
+<% end %>
