@@ -7,6 +7,18 @@ class Report < ApplicationRecord
   validates :pdf, presence: true
   validate :pdf_is_pdf
 
+  def self.ransackable_associations(_auth_object = nil)
+    %w[department user]
+  end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[id department_id user_id created_at updated_at pdf_filename]
+  end
+
+  def pdf_filename
+    pdf.attached? ? pdf.filename.to_s : nil
+  end
+
   private
 
   def pdf_is_pdf

@@ -1,18 +1,11 @@
 <h2>Departments</h2>
 
-<% if user_signed_in? %>
-  <%= link_to 'New Department', new_department_path %>
-<% end %>
 
 <ul>
   <% @departments.each do |department| %>
     <li>
       <%= link_to department.name, department_path(department) %>
-      
-      <% if user_signed_in? %>
-        | <%= link_to "Edit", edit_department_path(department) %>
-        | <%= button_to "Delete", department, method: :delete, data: { confirm: "Are you sure?" } %>
-      <% end %>
+
     </li>
   <% end %>
 </ul>

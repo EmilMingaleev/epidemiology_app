@@ -1,11 +1,6 @@
 <h1><%= @department.name %></h1>
 <p><%= @department.description %></p>
 
-<% if @department.qr_code.attached? %>
-  <h3>Scan to view this department</h3>
-  <%= image_tag @department.qr_code, alt: "Department QR Code", width: 200 %>
-<% end %>
-
 <h2>Reports</h2>
 <% if @department.reports.any? %>
   <% @department.reports.each do |report| %>
