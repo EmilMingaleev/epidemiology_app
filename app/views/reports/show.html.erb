@@ -1,7 +1,15 @@
-<h1>Report Viewer</h1>
+<div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+  <h1 class="text-3xl font-bold text-gray-800 mb-6">Report Viewer</h1>
 
-<% if @report.pdf.attached? %>
-  <iframe src="<%= url_for(@report.pdf) %>" width="100%" height="600px"></iframe>
-<% else %>
-  <p>No report available.</p>
-<% end %>
+  <% if @report.pdf.attached? %>
+    <div class="relative">
+      <iframe src="<%= url_for(@report.pdf) %>" width="100%" height="600px" class="border border-gray-300 rounded-lg shadow-sm"></iframe>
+    </div>
+  <% else %>
+    <p class="text-gray-600">No report available.</p>
+  <% end %>
+
+  <div class="mt-6">
+    <%= link_to 'Back', department_path(@department), class: "text-blue-600 hover:underline" %>
+  </div>
+</div>

@@ -1,19 +1,20 @@
-<h1>Upload Report for <%= @department.name %></h1>
+<div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+  <h1 class="text-3xl font-bold text-gray-800 mb-6">Загрузить для <%= @department.name %></h1>
 
-<%= form_with(model: [@department, @report], local: true) do |form| %>
-  <div>
-    <%= form.label :pdf, "Select PDF File" %>
-    <%= form.file_field :pdf %>
-  </div>
+  <%= form_with(model: [@department, @report], local: true) do |form| %>
+    <div class="mb-6">
+      <%= form.label :pdf, "Выбирите PDF файл", class: "block text-sm font-medium text-gray-700" %>
+      <%= form.file_field :pdf, class: "mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" %>
+    </div>
 
-  <div>
-    <%= form.label :comments, "Comments" %>
-    <%= form.text_area :comments %>
-  </div>
+    <div class="mb-6">
+      <%= form.label :comments, "Коментарии", class: "block text-sm font-medium text-gray-700" %>
+      <%= form.text_area :comments, class: "mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" %>
+    </div>
 
-  <div>
-    <%= form.submit "Upload Report" %>
-  </div>
-<% end %>
-
-<%= link_to 'Back', department_path(@department) %>
+    <div class="flex justify-between items-center">
+      <%= form.submit "Загрузить отчет", class: "px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" %>
+      <%= link_to 'Назад', department_path(@department), class: "text-blue-600 hover:underline" %>
+    </div>
+  <% end %>
+</div>

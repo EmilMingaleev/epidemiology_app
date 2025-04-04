@@ -4,7 +4,7 @@ require 'uri'
 require 'cgi'
 
 class EpidemiologyNewsService
-  API_KEY = '055d639acb624349a83511873848b878'
+  API_KEY = '70b2b9a420244523b6b3e30780e1033f'
 
   def self.fetch_epidemiology_news
     query = 'эпидемиология'
