@@ -1,5 +1,5 @@
 <div class="max-w-md mx-auto bg-white p-8 rounded-xl shadow-md">
-  <h2 class="text-2xl font-bold text-gray-700 text-center mb-4">Log in</h2>
+  <h2 class="text-2xl font-bold text-gray-700 text-center mb-4">Вход</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-4" }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -22,7 +22,7 @@
     <% end %>
 
     <div class="mt-6">
-      <%= f.submit "Log in", class: "w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition" %>
+      <%= f.submit "Зайти", class: "w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition" %>
     </div>
   <% end %>
 

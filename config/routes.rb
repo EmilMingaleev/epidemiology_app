@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root "home#index"
 
+  get "epidemiology_recommendations", to: "epidemiology#show", as: :epidemiology_recommendations
+
   resources :departments do
     resources :reports, only: [:new, :create]
   end
