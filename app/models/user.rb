@@ -7,6 +7,8 @@ class User < ApplicationRecord
     "#{last_name} #{first_name} #{middle_name}".strip
   end
 
+  has_one_attached :avatar
+
   def admin?
     admin
   end

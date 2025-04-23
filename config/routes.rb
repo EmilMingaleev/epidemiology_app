@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "users/show"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
@@ -10,4 +11,6 @@ Rails.application.routes.draw do
   resources :departments do
     resources :reports, only: [:new, :create]
   end
+
+  resources :users, only: [:index]
 end

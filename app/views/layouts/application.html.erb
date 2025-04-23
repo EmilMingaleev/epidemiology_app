@@ -54,6 +54,7 @@
           <li><%= link_to "Главная", root_path, class: "hover:underline" %></li>
           <li><%= link_to "Отделения", departments_path, class: "hover:underline" %></li>
           <li><%= link_to "Рекомендации", epidemiology_recommendations_path, class: "hover:underline" %></li>
+          <li><%= link_to "Врачи", users_path, class: "hover:underline" %></li>
           <% if user_signed_in? %>
             <li>
               <%= button_to "Выход", destroy_user_session_path, method: :delete, form: { class: "inline" }, class: "hover:underline" %>
