@@ -3,7 +3,7 @@
     <h1 class="text-4xl font-extrabold text-blue-600 mb-6 text-center">
       Рекомендации по эпидемиологии
     </h1>
-    
+
     <p class="text-lg text-gray-700 mb-6 leading-relaxed text-center">
       Эпидемиология играет важную роль в предупреждении распространения инфекционных заболеваний и обеспечении здоровья населения. Ниже приведены основные рекомендации по профилактике заболеваний и поддержанию здоровья.
     </p>
@@ -29,12 +29,8 @@
     </div>
 
     <div class="flex justify-center gap-12 mt-12">
-      <img src="<%= asset_path('gripp_1.png') %>" class="max-w-[48%] max-h-[700px] object-contain rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 cursor-pointer" onclick="openModal('<%= asset_path('gripp_1.png') %>')">
-      <img src="<%= asset_path('gripp_2.png') %>" class="max-w-[48%] max-h-[700px] object-contain rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 cursor-pointer" onclick="openModal('<%= asset_path('gripp_2.png') %>')">
-    </div>
-
-    <div id="qrModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden" onclick="closeModal()">
-      <img id="qrModalImage" class="max-w-[90%] max-h-[90%] object-contain" onclick="event.stopPropagation()">
+      <img src="<%= asset_path('gripp_1.png') %>" class="max-w-[48%] max-h-[700px] object-contain rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 cursor-pointer" onclick="openImageInNewWindow('<%= asset_path('gripp_1.png') %>')">
+      <img src="<%= asset_path('gripp_2.png') %>" class="max-w-[48%] max-h-[700px] object-contain rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 cursor-pointer" onclick="openImageInNewWindow('<%= asset_path('gripp_2.png') %>')">
     </div>
 
     <div class="text-center mt-12">

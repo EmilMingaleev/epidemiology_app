@@ -8,4 +8,8 @@ function openModal(imageSrc) {
     document.getElementById('qrModal').classList.add('hidden');
     document.getElementById('qrModal').classList.remove('flex');
   }
-  
+
+  function openImageInNewWindow(imageSrc) {
+    const newWindow = window.open(imageSrc, '_blank', 'width=1200,height=800,scrollbars=yes');
+    newWindow.document.title = "Просмотр изображения";
+  }
