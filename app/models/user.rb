@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   def full_name
-    "#{last_name} #{first_name} #{middle_name}".strip
+    "#{middle_name} #{first_name} #{last_name}".strip
   end
 
   has_one_attached :avatar

@@ -1,5 +1,6 @@
 ActiveAdmin.register AdminUser do
-  permit_params :email, :password, :password_confirmation, :last_name, :first_name, :middle_name, :position, :avatar
+  permit_params :email, :password, :password_confirmation, :last_name, :first_name, :middle_name, :position,
+                :description
 
   index do
     selectable_column
@@ -33,6 +34,7 @@ ActiveAdmin.register AdminUser do
       f.input :first_name
       f.input :middle_name
       f.input :position
+      f.input :description
       f.input :avatar, as: :file,
                        hint: f.object.persisted? && f.object.avatar.attached? ? image_tag(url_for(f.object.avatar), size: "100x100") : content_tag(:span, "No avatar yet")
     end
