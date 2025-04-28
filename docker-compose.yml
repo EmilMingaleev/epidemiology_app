@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: epidemiology_app
+      POSTGRES_PASSWORD: epidemiology
+      POSTGRES_DB: epidemiology_app_development
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: postgres://epidemiology_app:epidemiology@db:5432/epidemiology_app_development
+      RAILS_ENV: development
+      EPIDEMIOLOGY_APP_DATABASE_PASSWORD: epidemiology
+    volumes:
+      - .:/rails
+    ports:
+      - "3000:3000"
+    command: bash -c "bin/rails server -b 0.0.0.0 -p 3000"
+    depends_on:
+      - db
+    networks:
+      - backend
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:
