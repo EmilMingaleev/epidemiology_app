@@ -3,6 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  def full_name
+    "#{middle_name} #{first_name} #{last_name}".strip
+  end
+
+  has_one_attached :avatar
 
   def admin?
     admin
@@ -10,6 +15,6 @@ class User < ApplicationRecord
 
   def self.ransackable_attributes(_auth_object = nil)
     %w[admin created_at email encrypted_password id remember_created_at reset_password_sent_at
-       reset_password_token updated_at]
+       reset_password_token updated_at last_name first_name middle_name position]
   end
 end

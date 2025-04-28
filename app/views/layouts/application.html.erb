@@ -6,33 +6,102 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= yield :head %>
-</head>
-<body>
+  <link rel="icon" href="<%= asset_path('logo.png') %>" type="image/x-icon">
 
-  <header>
-    <h1>EpidemiologyApp</h1>
-    <nav>
-      <ul>
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Departments", departments_path %></li>
-        <% if user_signed_in? %>
-          <li>
-            <%= button_to "Logout", destroy_user_session_path, method: :delete, form: { style: "display: inline;" } %>
-          </li>
-        <% else %>
-          <li><%= link_to "Login", new_user_session_path %></li>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <%= javascript_include_tag 'application' %>
+
+  <%= yield :head %>
+
+  <style>
+    body {
+      background: url('<%= asset_path("fon.jpg") %>') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .header-logo {
+      height: 100%;
+      max-height: 60px;
+      object-fit: contain;
+    }
+
+    footer {
+      margin-top: auto;
+    }
+  </style>
+</head>
+
+<body class="text-gray-900">
+
+  <header class="bg-blue-500 text-white p-4 shadow-md">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <%= link_to root_path do %>
+          <img src="<%= asset_path('logo.png') %>" alt="Логотип" class="header-logo">
         <% end %>
-      </ul>
-    </nav>
+
+      <%= link_to root_path, class: "ml-4 text-lg font-semibold leading-tight hover:underline" do %>
+        Государственное автономное учреждение здравоохранения <br>
+          "Межрегиональный клинико-диагностический центр"
+        <% end %>
+      </div>
+
+      <nav class="w-full md:w-auto">
+        <ul class="flex flex-wrap justify-center md:justify-end gap-3 text-sm md:text-base">
+          <li><%= link_to "Главная", root_path, class: "hover:underline" %></li>
+          <li><%= link_to "Отделения", departments_path, class: "hover:underline" %></li>
+          <li><%= link_to "Рекомендации", epidemiology_recommendations_path, class: "hover:underline" %></li>
+          <li><%= link_to "Врачи", users_path, class: "hover:underline" %></li>
+          <% if user_signed_in? %>
+            <li>
+              <%= button_to "Выход", destroy_user_session_path, method: :delete, form: { class: "inline" }, class: "hover:underline" %>
+            </li>
+          <% else %>
+            <li><%= link_to "Вход", new_user_session_path, class: "hover:underline" %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main class="container mx-auto p-6 flex-1">
     <%= yield %>
   </main>
 
-  <footer>
-    <p>&copy; 2025 EpidemiologyApp</p>
+  <footer class="bg-gray-800 text-white p-6">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-start text-sm">
+      <div class="md:w-1/3 mb-6 md:mb-0">
+        <p class="font-semibold">420101, РТ, г.Казань, ул. Карбышева, д.12а</p>
+        <div class="mt-4">
+        <a href="https://2gis.ru/kazan?m=49.170781%2C55.75237%2F17.01" target="_blank" title="Открыть в 2ГИС">
+            <img src="<%= asset_path('2gis.png') %>" width="132" height="132" alt="2ГИС карта">
+        </a>
+        </div>
+      </div>
+
+      <div class="md:w-1/3 mb-6 md:mb-0 text-center">
+        <p class="font-semibold">Запись на медицинские услуги:</p>
+        <p>+7 (843) 2-911-016</p>
+        <p>+7 (843) 2-911-024</p>
+        <p>+7 (843) 2-911-025</p>
+        <p>+7 (843) 2-911-123</p>
+        <p>Email: <a href="mailto:icdc@icdc.ru" class="text-blue-400">icdc@icdc.ru</a></p>
+      </div>
+
+      <div class="md:w-1/3 flex justify-center md:justify-end">
+        <a href="https://www.icdc.ru/ru/" target="_blank" title="Перейти на сайт ICDC">
+          <img src="http://qrcoder.ru/code/?https%3A%2F%2Fwww.icdc.ru%2Fru%2F&4&0" width="132" height="132" border="0" alt="QR код">
+        </a>
+      </div>
+    </div>
+
+    <div class="text-center mt-6 border-t border-gray-600 pt-4 text-sm">
+      &copy; 2006-2025 Государственное автономное учреждение здравоохранения<br>
+      "Межрегиональный клинико-диагностический центр"
+    </div>
   </footer>
 
 </body>

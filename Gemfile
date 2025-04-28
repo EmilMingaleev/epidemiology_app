@@ -77,3 +77,5 @@ gem "devise", "~> 4.9"
 gem 'activeadmin'
 gem 'action_policy'
 gem "sassc", "~> 2.4"
+gem 'rqrcode'
+gem "image_processing"

@@ -4,3 +4,10 @@ Metrics/BlockLength:
   Enabled: true
   Exclude:
     - 'db/schema.rb'
+    - 'app/admin/*.rb'
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
