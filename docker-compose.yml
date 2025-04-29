@@ -19,7 +19,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      DATABASE_URL: postgresql://emil:emil@amvera-emilmingaleev-cnpg-epidapp-rw:5432/epidapp_production
+      DATABASE_URL: postgres://epidemiology_app:epidemiology@amvera-emilmingaleev-cnpg-emil1-rw:5432/epidemiology_app_production
       RAILS_ENV: development
       EPIDEMIOLOGY_APP_DATABASE_PASSWORD: epidemiology
     volumes:
