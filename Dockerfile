@@ -36,9 +36,6 @@ RUN find . -type f -exec dos2unix {} \;
 RUN bundle exec bootsnap precompile app/ lib/
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE_DUMMY=1 bundle exec rails db:migrate && \
-    SECRET_KEY_BASE_DUMMY=1 bundle exec rails db:seed
-
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
 
@@ -64,5 +61,4 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD CMD ["sh", "-c", "bundle exec rails db:migrate && bundle exec rails db:seed && bundle exec rails server"]
-
+CMD ["./bin/rails", "server"]
