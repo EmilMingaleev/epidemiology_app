@@ -23,14 +23,10 @@ services:
       RAILS_ENV: development
       EPIDEMIOLOGY_APP_DATABASE_PASSWORD: epidemiology
     volumes:
-      - .:/rails:cached
+      - .:/rails
     ports:
       - "3000:3000"
-    command: >
-      bash -c "
-        bundle exec rails db:migrate &&
-        bundle exec rails server -b 0.0.0.0 -p 3000
-      "
+    command: bash -c "bin/rails server -b 0.0.0.0 -p 3000"
     depends_on:
       - db
     networks:
