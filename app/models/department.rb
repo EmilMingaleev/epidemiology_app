@@ -17,7 +17,7 @@ class Department < ApplicationRecord
   private
 
   def generate_qr_code
-    qr = RQRCode::QRCode.new(Rails.application.routes.url_helpers.department_url(self, host: "localhost:3000"))
+    qr = RQRCode::QRCode.new(Rails.application.routes.url_helpers.department_url(self, host: "https://emil-emilmingaleev.amvera.io"))
 
     png = qr.as_png(
       bit_depth: 1,
