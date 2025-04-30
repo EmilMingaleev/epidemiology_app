@@ -14,15 +14,20 @@
 
         <% if report.pdf.attached? %>
           <div class="mt-4">
-            <iframe 
-              src="<%= url_for(report.pdf) %>" 
-              class="w-full min-h-[400px] sm:min-h-[600px] md:min-h-[800px] border rounded-lg"
-              style="max-height: 90vh;" 
-              allowfullscreen>
-            </iframe>
-            <p class="mt-2">
-              <%= link_to "Открыть PDF в новом окне", rails_blob_path(report.pdf, disposition: "inline"), target: "_blank", class: "text-blue-600 hover:underline" %>
-            </p>
+            <!-- Только для больших экранов -->
+            <div class="hidden sm:block">
+              <iframe 
+                src="<%= url_for(report.pdf) %>" 
+                class="w-full min-h-[600px] md:min-h-[800px] border rounded-lg"
+                style="max-height: 90vh;" 
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <!-- Только для мобильных -->
+            <div class="block sm:hidden text-center mt-4">
+              <%= link_to "Открыть PDF в новой вкладке", rails_blob_path(report.pdf, disposition: "inline"), target: "_blank", class: "text-blue-600 hover:underline font-semibold" %>
+            </div>
           </div>
         <% else %>
           <p class="text-gray-500">PDF не прикреплён</p>
