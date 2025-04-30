@@ -30,7 +30,6 @@ RUN bundle install && \
 COPY . .
 
 # Fix line endings for Windows (CRLF -> LF) in all Ruby files, including bin/*
-RUN find . -type f -exec dos2unix {} \;
 
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
