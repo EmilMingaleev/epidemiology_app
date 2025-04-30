@@ -7,30 +7,35 @@
   <% if @department.reports.any? %>
     <% @department.reports.order(created_at: :desc).each do |report| %>
       <div class="p-4 mb-4 border border-gray-200 rounded-lg shadow-sm">
-        <p class="text-sm text-gray-500">Загруженно: <%= report.uploaded_at || report.created_at.strftime("%d.%m.%Y %H:%M") %></p>
+        <p class="text-sm text-gray-500">Загружено: <%= report.uploaded_at || report.created_at.strftime("%d.%m.%Y %H:%M") %></p>
         <p class="text-gray-700"><strong>Автор:</strong> <%= report.user.full_name if report.user %></p>
         <p class="text-gray-700"><strong>Должность:</strong> <%= report.user.position if report.user %></p>
-        <p class="text-gray-700">Коментарии: <%= report.comments %></p>
+        <p class="text-gray-700">Комментарии: <%= report.comments %></p>
 
         <% if report.pdf.attached? %>
           <div class="mt-4">
-            <iframe src="<%= url_for(report.pdf) %>" class="w-full h-[800px] border rounded-lg"></iframe>
+            <iframe 
+              src="<%= url_for(report.pdf) %>" 
+              class="w-full min-h-[400px] sm:min-h-[600px] md:min-h-[800px] border rounded-lg"
+              style="max-height: 90vh;" 
+              allowfullscreen>
+            </iframe>
             <p class="mt-2">
               <%= link_to "Открыть PDF в новом окне", rails_blob_path(report.pdf, disposition: "inline"), target: "_blank", class: "text-blue-600 hover:underline" %>
             </p>
           </div>
         <% else %>
-          <p class="text-gray-500">No PDF attached</p>
+          <p class="text-gray-500">PDF не прикреплён</p>
         <% end %>
       </div>
     <% end %>
   <% else %>
-    <p class="text-gray-500">No reports uploaded yet.</p>
+    <p class="text-gray-500">Отчёты пока не загружены.</p>
   <% end %>
 
   <% if user_signed_in? %>
     <div class="mt-4">
-      <%= link_to "Загрузить новый Отчет", new_department_report_path(@department), class: "bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition" %>
+      <%= link_to "Загрузить новый Отчёт", new_department_report_path(@department), class: "bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition" %>
     </div>
   <% end %>
 
