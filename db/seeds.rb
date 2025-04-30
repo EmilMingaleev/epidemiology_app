@@ -3,9 +3,7 @@ Department.delete_all
 User.delete_all
 AdminUser.delete_all
 # Создаем администратора
-if Rails.env.development?
-  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
-end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 # Создаем отделы
 departments = [
