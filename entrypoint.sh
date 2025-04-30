@@ -4,9 +4,6 @@ set -e
 # Удаляем PID-файл Puma, если он остался после перезапуска
 rm -f tmp/pids/server.pid
 
-echo "Resetting database..."
-bin/rails db:drop DISABLE_DATABASE_ENVIRONMENT_CHECK=1
-bin/rails db:create
 bin/rails db:migrate
 
 # Прогоняем сиды, только если база пуста (например, нет пользователей)
