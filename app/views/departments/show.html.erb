@@ -14,7 +14,6 @@
 
         <% if report.pdf.attached? %>
           <div class="mt-4">
-            <!-- Только для больших экранов -->
             <div class="hidden sm:block">
               <iframe 
                 src="<%= url_for(report.pdf) %>" 
@@ -24,7 +23,6 @@
               </iframe>
             </div>
 
-            <!-- Только для мобильных -->
             <div class="block sm:hidden text-center mt-4">
               <%= link_to "Открыть PDF в новой вкладке", rails_blob_path(report.pdf, disposition: "inline"), target: "_blank", class: "text-blue-600 hover:underline font-semibold" %>
             </div>

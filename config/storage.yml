@@ -32,3 +32,11 @@ local:
 #   service: Mirror
 #   primary: local
 #   mirrors: [ amazon, google, microsoft ]
+yandex:
+  service: S3
+  access_key_id: 'YCAJEg3yZwLoWFUyTZAd-xnrl'
+  secret_access_key: 'YCPaheYrtu0lfkQBg7pg5U_rKp6ZKEnsyXbtcMRa'
+  bucket: 'epid'
+  region: ru-central1
+  endpoint: 'https://storage.yandexcloud.net'
+  force_path_style: true
