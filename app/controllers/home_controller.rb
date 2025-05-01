@@ -1,11 +1,8 @@
 class HomeController < ApplicationController
   def index
-    news = EpidemiologyNewsService.fetch_all
-
-    @epidemiology_news = news[:epidemiology]
-    @hiv_news          = news[:hiv]
-    @covid_news        = news[:covid]
-
+    @epidemiology_news = EpidemiologyNewsService.fetch_epidemiology_news
+    @hiv_news = EpidemiologyNewsService.fetch_hiv_news
+    @covid_news = EpidemiologyNewsService.fetch_covid_news
     @departments = Department.all
   end
 end
