@@ -32,12 +32,13 @@ local:
 #   service: Mirror
 #   primary: local
 #   mirrors: [ amazon, google, microsoft ]
+
 yandex:
   service: S3
   access_key_id: <%= ENV['YANDEX_ACCESS_KEY_ID'] %>
   secret_access_key: <%= ENV['YANDEX_SECRET_ACCESS_KEY'] %>
   bucket: <%= ENV['YANDEX_BUCKET'] %>
-  region: <%= ENV['YANDEX_REGION'] %>
+  region: ru-central1
   endpoint: <%= ENV['YANDEX_ENDPOINT'] %>
   force_path_style: <%= ENV['YANDEX_FORCE_PATH_STYLE'] == 'true' %>
 
