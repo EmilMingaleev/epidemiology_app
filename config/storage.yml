@@ -34,9 +34,10 @@ local:
 #   mirrors: [ amazon, google, microsoft ]
 yandex:
   service: S3
-  access_key_id: 'YCAJEg3yZwLoWFUyTZAd-xnrl'
-  secret_access_key: 'YCPaheYrtu0lfkQBg7pg5U_rKp6ZKEnsyXbtcMRa'
-  bucket: 'epid'
-  region: ru-central1
-  endpoint: 'https://storage.yandexcloud.net'
-  force_path_style: true
+  access_key_id: <%= ENV['YANDEX_ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['YANDEX_SECRET_ACCESS_KEY'] %>
+  bucket: <%= ENV['YANDEX_BUCKET'] %>
+  region: <%= ENV['YANDEX_REGION'] %>
+  endpoint: <%= ENV['YANDEX_ENDPOINT'] %>
+  force_path_style: <%= ENV['YANDEX_FORCE_PATH_STYLE'] == 'true' %>
+

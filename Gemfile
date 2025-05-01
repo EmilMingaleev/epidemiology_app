@@ -53,6 +53,7 @@ group :development, :test do
   gem "rubocop-rails", require: false
   gem "rubocop-performance", require: false
   gem 'seed_dump'
+  gem 'dotenv-rails'
 end
 
 group :development do
