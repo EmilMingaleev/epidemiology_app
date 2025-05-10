@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Межрегиональный клинико-диагностический центр в Казани">
+  <meta name="keywords" content="МКДЦ, Казань, клиника, диагностика, врачи">
+  <meta name="author" content="МКДЦ">
+
   <title>МКДЦ Казань</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
@@ -10,27 +16,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag 'activestorage' %>
+  <%= stylesheet_link_tag 'background', media: 'all' %>
+  <%= javascript_include_tag 'mobile_menu' %>
+  <%= stylesheet_link_tag 'scrollbar', media: 'all' %>
+  <%= stylesheet_link_tag 'epid', media: 'all' %>
+  <%= stylesheet_link_tag 'users', media: 'all' %>
   <%= yield :head %>
 
-  <style>
-    body {
-      background: url('<%= asset_path("fon1.jpg") %>') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    .header-logo {
-      height: 100%;
-      max-height: 60px;
-      object-fit: contain;
-    }
-
-    footer {
-      margin-top: auto;
-    }
-  </style>
 </head>
 
 <body class="text-gray-900 relative">
@@ -130,40 +122,7 @@
       &copy; 2006-2025 Государственное автономное учреждение здравоохранения<br>
       "Межрегиональный клинико-диагностический центр"
     </div>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const toggleButton = document.getElementById('menu-toggle');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const overlay = document.getElementById('overlay');
-      const menuLinks = document.querySelectorAll('.mobile-menu-link');
-
-      function openMenu() {
-        mobileMenu.classList.remove('translate-x-full');
-        overlay.classList.remove('hidden');
-      }
-
-      function closeMenu() {
-        mobileMenu.classList.add('translate-x-full');
-        overlay.classList.add('hidden');
-      }
-
-      toggleButton.addEventListener('click', () => {
-        if (mobileMenu.classList.contains('translate-x-full')) {
-          openMenu();
-        } else {
-          closeMenu();
-        }
-      });
-
-      overlay.addEventListener('click', closeMenu);
-
-      menuLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-      });
-    });
-  </script>
+  </footer> 
 
 </body>
 </html>

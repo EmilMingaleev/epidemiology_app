@@ -1,0 +1,17 @@
+body {
+  background: url('fon1.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header-logo {
+  height: 100%;
+  max-height: 60px;
+  object-fit: contain;
+}
+
+footer {
+  margin-top: auto;
+}
