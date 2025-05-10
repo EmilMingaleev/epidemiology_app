@@ -8,7 +8,7 @@ class EpidemiologyNewsService
 
   def self.fetch_news(query)
     encoded_query = CGI.escape(query)
-    url = URI("https://newsapi.org/v2/everything?q=#{encoded_query}&language=ru&apiKey=#{API_KEY}")
+    url = URI("https://newsapi.org/v2/everything?q=#{encoded_query}&language=ru&domains=rbc.ru,ria.ru,kommersant.ru,tass.ru,lenta.ru,rg.ru,iz.ru,vedomosti.ru&apiKey=#{API_KEY}")
     response = Net::HTTP.get(url)
     JSON.parse(response)['articles'].first(3)
   end
