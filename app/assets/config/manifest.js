@@ -4,3 +4,4 @@
 // app/assets/config/manifest.js
 //= link application.js
 //= link application.css
+//= link mobile_menu.js
