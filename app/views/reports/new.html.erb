@@ -3,7 +3,7 @@
 
   <%= form_with(model: [@department, @report], local: true) do |form| %>
     <div class="mb-6">
-      <%= form.label :pdf, "Выбирите PDF файл", class: "block text-sm font-medium text-gray-700" %>
+      <%= form.label :pdf, "Выбирите PDF отчет", class: "block text-sm font-medium text-gray-700" %>
       <%= form.file_field :pdf, class: "mt-1 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" %>
     </div>
 
