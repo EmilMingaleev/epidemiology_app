@@ -7,6 +7,8 @@ class Report < ApplicationRecord
   validates :pdf, presence: true
   validate :pdf_is_pdf
 
+  after_create :notify_telegram
+
   def self.ransackable_associations(_auth_object = nil)
     %w[department user]
   end
@@ -25,5 +27,24 @@ class Report < ApplicationRecord
     return unless pdf.attached? && pdf.content_type != 'application/pdf'
 
     errors.add(:pdf, 'must be a PDF file')
+  end
+
+  def notify_telegram
+    message = <<~MSG
+      📝 *Создан новый отчёт* (ID: #{id})
+
+      *Пользователь:* #{begin
+        user.full_name
+      rescue StandardError
+        user.email
+      end}
+      *Отдел:* #{department.name}
+      *Комментарий:* #{comments.presence || '—'}
+      *Файл:* #{pdf_filename}
+
+      📅 Создан: #{created_at.strftime('%d.%m.%Y %H:%M')}
+    MSG
+
+    TelegramNotifier.send_message(message, parse_mode: 'Markdown')
   end
 end

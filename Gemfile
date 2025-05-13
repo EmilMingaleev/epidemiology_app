@@ -82,3 +82,4 @@ gem "sassc", "~> 2.4"
 gem 'rqrcode'
 gem "image_processing"
 gem 'aws-sdk-s3', require: false
+gem 'telegram-bot-ruby'
